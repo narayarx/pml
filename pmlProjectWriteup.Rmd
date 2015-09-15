@@ -121,9 +121,8 @@ pred_2fold    A    B    C    D    E
          
          Accuracy calculated based on the table above = 5843/5885 = 99.28%
 
-__________________________________________________________________________
 
- print(model_2fold)
+>print(model_2fold)
 Random Forest 
 
 13737 samples
@@ -143,4 +142,32 @@ Resampling results across tuning parameters:
 Accuracy was used to select the optimal model using  the largest value.
 The final value used for the model was mtry = 29. 
 
-______________________________________________________________________________
+I also tried to fit a model based on SVM on the data. As the results below show, the accuracy is lower compared to Random Forest. However the SVM model ran much faster (under 5 min.) compared to the Random Forest model which took close to 20 min. The 20 predicted results on the test set were all correct. So although using a Random Forest gives a higher accuracy, doint so comes at a cost of additional time to run and is not scalable.
+
+SVM:
+> table(pred, testing$classe)
+    
+pred    A    B    C    D    E
+   A 1663  100    3    3    1
+   B    8 1004   49    0    7
+   C    2   32  969   96   43
+   D    1    0    4  861   27
+   E    0    3    1    4 1004
+   
+   Accuracy = 93.5%
+  
+>fit1
+
+Call:
+svm(formula = classe ~ ., data = training)
+
+
+Parameters:
+   SVM-Type:  C-classification 
+ SVM-Kernel:  radial 
+       cost:  1 
+      gamma:  0.01724138 
+
+Number of Support Vectors:  6606
+
+
