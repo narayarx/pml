@@ -108,7 +108,6 @@ Resampling results across tuning parameters:
 
 Accuracy was used to select the optimal model using  the largest value.
 The final value used for the model was mtry = 29. 
-__________________________________________________________________________
 
 > table(pred_2fold, testing$classe)
           
@@ -142,7 +141,13 @@ Resampling results across tuning parameters:
 Accuracy was used to select the optimal model using  the largest value.
 The final value used for the model was mtry = 29. 
 
-I also tried to fit a model based on SVM on the data. As the results below show, the accuracy is lower compared to Random Forest. However the SVM model ran much faster (under 5 min.) compared to the Random Forest model which took close to 20 min. The 20 predicted results on the test set were all correct. So although using a Random Forest gives a higher accuracy, doint so comes at a cost of additional time to run and is not scalable.
+I also tried to fit a model based on SVM on the data. As the results below show, 
+the accuracy is lower compared to Random Forest. However the SVM model ran much 
+faster (under 5 min.) compared to the Random Forest model which took close 
+to 20 min. The 20 predicted results on the test set were all correct. 
+So although using a Random Forest gives a higher accuracy, 
+doing so comes at a cost of additional time to run and will be more
+difficult to scalable.
 
 SVM:
 > table(pred, testing$classe)
